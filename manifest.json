@@ -8,7 +8,7 @@
     "48": "img/icon.png",
     "128": "img/icon.png"
   },
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": "img/icon.png"
   },
@@ -27,9 +27,10 @@
     }
   ],
   "permissions": [
-    "http://*/*",
-    "https://*/*",
     "tabs",
     "downloads"
+  ],
+  "host_permissions": [
+    "*://*/*"
   ]
 }
