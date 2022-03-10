@@ -1,0 +1,35 @@
+{
+  "name": "Site tools",
+  "version": "1.0",
+  "description": "Site tools Extension!",
+  "manifest_version": 2,
+  "icons": {
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "img/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>",
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "js/jquery-3.6.0.min.js",
+        "js/content-script.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "tabs",
+    "downloads"
+  ]
+}
