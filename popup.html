@@ -6,6 +6,7 @@
   <style>
     * {
       font-size: 14px;
+      box-sizing: border-box;
     }
     
     .main {
@@ -27,6 +28,29 @@
       list-style: none;
       padding: 4px 0;
     }
+    
+    .hide {
+      display: none;
+    }
+    
+    .result {
+      margin-top: 30px;
+      /*border: 1px solid #ddd;*/
+      /*padding: 15px;*/
+      border-radius: 4px;
+    }
+    
+    .result textarea {
+      overflow: hidden;
+      /* demo only: */
+      resize: none;
+      padding: 8px;
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      min-height: 50px;
+      border: 1px solid #ddd;
+    }
   </style>
 </head>
 <body>
@@ -40,7 +64,13 @@
       ⏬ <a href="#" id="downloadFavicon">下载 favicon</a>
     </li>
   </ul>
+  
+  <div class="result hide">
+    <div style="margin-bottom: 10px;">查看结果</div>
+    <textarea id="result"></textarea>
+  </div>
 </div>
+<script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/popup.js"></script>
 </body>
 </html>

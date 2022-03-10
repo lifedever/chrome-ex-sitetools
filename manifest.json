@@ -1,7 +1,7 @@
 {
   "name": "Site tools",
   "version": "1.0",
-  "description": "Site tools Extension!",
+  "description": "Chrome Site tools Extension!",
   "manifest_version": 2,
   "icons": {
     "16": "img/icon.png",

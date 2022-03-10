@@ -1,3 +1,16 @@
+const textResize = (el) => {
+  setTimeout(function() {
+    el.style.cssText = 'height: 5px;';
+    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+  }, 0);
+}
+
+document.querySelector('#result').addEventListener('input', function() {
+  var el = this;
+  textResize(el)
+});
+
+
 function sendMessageToContentScript(message, callback) {
   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, message, function(response) {
@@ -35,8 +48,10 @@ const domClickAndSendMessage = (id, message) => {
  */
 domClickAndSendMessage('getSiteTitle', {
   cmd: 'getTitle',
-}).then(res => {
-  alert(res);
+}).then(title => {
+  $('.result').removeClass('hide');
+  $('#result').val(title);
+  textResize($('#result')[0])
 });
 
 /**
@@ -45,5 +60,5 @@ domClickAndSendMessage('getSiteTitle', {
 domClickAndSendMessage('downloadFavicon', {
   cmd: 'downloadFavicon',
 }).then(url => {
-  chrome.downloads.download({url: url})
+  chrome.downloads.download({ url: url });
 });
